@@ -5,8 +5,16 @@ from __future__ import annotations
 import argparse
 import os
 import sys
+from typing import Any
 
-from mini_agent import Agent, MockLLMClient, OpenAILLMClient, default_registry, ui
+from mini_agent import (
+    Agent,
+    BaseLLMClient,
+    MockLLMClient,
+    OpenAILLMClient,
+    default_registry,
+    ui,
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -80,7 +88,7 @@ Examples:
     return parser.parse_args()
 
 
-def init_llm(args: argparse.Namespace) -> tuple[Any, str, str]:
+def init_llm(args: argparse.Namespace) -> tuple[BaseLLMClient, str, str]:
     """Initialize the LLM client based on arguments and environment."""
     if args.mock:
         client = MockLLMClient(model=args.model or "mock-agent-v1")
