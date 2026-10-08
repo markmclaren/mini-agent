@@ -1,0 +1,19 @@
+[project]
+name = "mini-agent"
+version = "0.1.0"
+description = "A lightweight, zero-bloat autonomous ReAct AI agent in Python with practical tools and a Rich UI."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.15.0",
+    "ddgs>=9.16.0",
+    "duckduckgo-search>=8.1.1",
+    "httpx>=0.28.1",
+    "openai>=3.26.1",
+    "pydantic>=2.14.0",
+    "rich>=15.0.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
